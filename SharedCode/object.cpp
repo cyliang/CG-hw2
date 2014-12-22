@@ -1,6 +1,23 @@
 #include "object.h"
 #include <GL/glut.h>
 
+ObjLoader::ObjLoader(const char *object_info_file, const Texture *t):
+mesh(object_info_file), texture(t) {
+	displayListID = glGenLists(fTotal);
+
+	for (int i = 0; i < fTotal; i++) {
+		glNewList(displayListID + i, GL_COMPILE);
+			glBegin(GL_TRIANGLES);
+			for (int j = 0; j < 3; j++) {
+				texture->setCoor(tList[faceList[i].v[j].t].ptr);
+				glNormal3fv(nList[faceList[i].v[j].n].ptr);
+				glVertex3fv(vList[faceList[i].v[j].v].ptr);
+			}
+			glEnd();
+		glEndList();
+	}
+}
+
 void ObjLoader::setObj() const {
 	texture->setTexture();
 
@@ -16,13 +33,7 @@ void ObjLoader::setObj() const {
 			glMaterialfv(GL_FRONT, GL_SHININESS, &mtl.Ns);
 		}
 
-		glBegin(GL_TRIANGLES);
-		for(int j=0; j<3; j++) {
-			texture->setCoor(tList[faceList[i].v[j].t].ptr);
-			glNormal3fv(nList[faceList[i].v[j].n].ptr);
-			glVertex3fv(vList[faceList[i].v[j].v].ptr);
-		}
-		glEnd();
+		glCallList(displayListID + i);
 	}
 
 	texture->unsetTexture();

@@ -96,5 +96,5 @@ void ViewingLoader::zoom(bool inOut) {
 }
 
 void ViewingLoader::rotate(bool lR) {
-	rotate_angle += lR ? 10 : -10;
+	rotate_angle += lR ? 5 : -5;
 }

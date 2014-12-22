@@ -6,6 +6,7 @@ void display() {
 	extern ViewingLoader *viewPtr;
 	extern SceneLoader *scenePtr;
 	extern GLhandleARB MyShader;
+	extern float coef;
 
 	viewPtr->setViewing();
 
@@ -19,15 +20,21 @@ void display() {
 
 	GLint locationColor = glGetUniformLocation(MyShader, "colorTexture");
 	GLint locationHeight = glGetUniformLocation(MyShader, "heightTexture");
-	if (locationColor == -1 || locationHeight == -1)
-		cerr << "Cant find texture name: colorTexture or heightTexture." << endl;
+	GLint locationCoef = glGetUniformLocation(MyShader, "coef");
+	if (locationColor == -1 || locationHeight == -1 || locationCoef == -1)
+		cerr << "Cant find texture name: coef, colorTexture or heightTexture." << endl;
 	else {
 		glUniform1i(locationColor, 0);
 		glUniform1i(locationHeight, 1);
+		glUniform1f(locationCoef, coef);
 	}
 
 	scenePtr->displayScene();
 
 	glutSwapBuffers();
 	glFlush();
+}
+
+void redisplay() {
+	glutPostRedisplay();
 }

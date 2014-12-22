@@ -8,6 +8,8 @@ ViewingLoader *viewPtr;
 SceneLoader *scenePtr;
 GLhandleARB MyShader;
 
+float coef = 2;
+
 void LoadShaders();
 
 int main(int argc, char *argv[]) {
@@ -31,8 +33,7 @@ int main(int argc, char *argv[]) {
 
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
-	//glutKeyboardFunc(keyboard);
-	//glutMouseFunc(mouse);
+	glutSpecialFunc(keyboard);
 	glutMainLoop();
 	return 0;
 }

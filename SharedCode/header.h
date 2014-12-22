@@ -8,6 +8,6 @@
 
 void display();
 void reshape(GLsizei, GLsizei);
-void keyboard(unsigned char, int, int);
-void mouse(int, int, int, int);
+void keyboard(int, int, int);
+void redisplay();
 
