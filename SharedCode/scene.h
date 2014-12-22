@@ -4,11 +4,8 @@
 
 class SceneLoader {
 public:
-	SceneLoader(const char *SceneInfoFile);
+	SceneLoader(const char *SceneInfoFile, const char *map[]);
 	void displayScene() const;
-
-	void moveObj(float x_diff, float y_diff);
-	void select(int nthObj);
 
 private:
 	struct Model {
@@ -21,5 +18,4 @@ private:
 	};
 
 	std::vector<Model> models;
-	int selection;
 };
