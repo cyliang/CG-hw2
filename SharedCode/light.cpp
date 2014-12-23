@@ -20,7 +20,7 @@ LightLoader::LightLoader(const char *info_file): lights_count(0) {
 		} else if(type == "light") {
 			LightSource &source = lights[lights_count++];
 
-			source.position_xyz[3] = 1.0f;
+			source.position_xyz[3] = 0.0f;
 			source.ambient_rgb[3] = source.diffuse_rgb[3] = source.specular_rgb[3] = 1.0f;
 
 			ifile >> source.position_xyz[0] >> source.position_xyz[1] >> source.position_xyz[2]

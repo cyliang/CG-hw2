@@ -1,9 +1,8 @@
 #include "header.h"
-#include <iostream>
 
 void keyboard(int key, int x, int y) {
 	extern float coef;
-	extern ViewingLoader *viewPtr;
+	extern float rotate_angle;
 
 	switch (key) {
 	case GLUT_KEY_UP:
@@ -13,15 +12,14 @@ void keyboard(int key, int x, int y) {
 		coef -= 0.1;
 		break;
 	case GLUT_KEY_LEFT:
-		viewPtr->rotate(true);
+		rotate_angle += 5;
 		break;
 	case GLUT_KEY_RIGHT:
-		viewPtr->rotate(false);
+		rotate_angle -= 5;
 		break;
 	default:
 		return;
 	}
 
 	redisplay();
-	std::cout << coef << std::endl;
 }

@@ -8,6 +8,8 @@ void display() {
 	extern LightLoader *lightPtr;
 	extern GLhandleARB MyShader;
 	extern float coef;
+	extern float rotate_angle;
+	extern float light_angle[2];
 
 	viewPtr->setViewing();
 
@@ -32,7 +34,16 @@ void display() {
 		glUniform1f(locationWidth, 1024.0);
 	}
 
-	lightPtr->setLight();
+	glMatrixMode(GL_MODELVIEW);
+
+	glPushMatrix();
+		glRotatef(light_angle[0], 0, 1, 0);
+		glRotatef(light_angle[1], -1, 0, 0);
+		lightPtr->setLight();
+	glPopMatrix();
+
+	glRotatef(rotate_angle, 0, 1, 0);
+
 	scenePtr->displayScene();
 
 	glutSwapBuffers();

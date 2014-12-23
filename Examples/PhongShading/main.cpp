@@ -9,9 +9,12 @@ SceneLoader *scenePtr;
 LightLoader *lightPtr;
 GLhandleARB MyShader;
 
-float coef = 1;
+float coef = 0.4;
+float rotate_angle = 0;
+float light_angle[2] = { 0.0, 0.0 }; // Horizontal, Vertical
 
 void LoadShaders();
+void lightCtrl(unsigned char key, int x, int y);
 
 int main(int argc, char *argv[]) {
 	if (argc != 6) {
@@ -36,6 +39,7 @@ int main(int argc, char *argv[]) {
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutSpecialFunc(keyboard);
+	glutKeyboardFunc(lightCtrl);
 	glutMainLoop();
 	return 0;
 }
@@ -52,4 +56,25 @@ void LoadShaders()
 		ShaderLoad(MyShader, "../Examples/PhongShading/BumpMap.vs", GL_VERTEX_SHADER);
 		ShaderLoad(MyShader, "../Examples/PhongShading/BumpMap.fs", GL_FRAGMENT_SHADER);
 	}
+}
+
+void lightCtrl(unsigned char key, int x, int y) {
+	switch (key) {
+	case 'w':
+		light_angle[1] += 5;
+		break;
+	case 's':
+		light_angle[1] -= 5;
+		break;
+	case 'a':
+		light_angle[0] -= 5;
+		break;
+	case 'd':
+		light_angle[0] += 5;
+		break;
+	default:
+		return;
+	}
+
+	redisplay();
 }

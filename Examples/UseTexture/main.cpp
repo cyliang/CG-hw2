@@ -9,6 +9,7 @@ SceneLoader *scenePtr;
 GLhandleARB MyShader;
 
 float coef = 2;
+float rotate_angle = 0;
 
 void LoadShaders();
 

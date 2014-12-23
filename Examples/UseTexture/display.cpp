@@ -7,6 +7,7 @@ void display() {
 	extern SceneLoader *scenePtr;
 	extern GLhandleARB MyShader;
 	extern float coef;
+	extern float rotate_angle;
 
 	viewPtr->setViewing();
 
@@ -28,6 +29,9 @@ void display() {
 		glUniform1i(locationHeight, 1);
 		glUniform1f(locationCoef, coef);
 	}
+
+	glMatrixMode(GL_MODELVIEW);
+	glRotatef(rotate_angle, 0, 1, 0);
 
 	scenePtr->displayScene();
 
