@@ -8,9 +8,6 @@
     <ClCompile Include="mesh.cpp">
       <Filter>display</Filter>
     </ClCompile>
-    <ClCompile Include="object.cpp">
-      <Filter>display</Filter>
-    </ClCompile>
     <ClCompile Include="scene.cpp">
       <Filter>display</Filter>
     </ClCompile>
@@ -31,9 +28,6 @@
     <ClInclude Include="mesh.h">
       <Filter>display</Filter>
     </ClInclude>
-    <ClInclude Include="object.h">
-      <Filter>display</Filter>
-    </ClInclude>
     <ClInclude Include="scene.h">
       <Filter>display</Filter>
     </ClInclude>
@@ -41,6 +35,9 @@
       <Filter>display</Filter>
     </ClInclude>
     <ClInclude Include="viewing.h">
+      <Filter>display</Filter>
+    </ClInclude>
+    <ClInclude Include="object.h">
       <Filter>display</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,4 @@
-#include "object.h"
+#include "../SharedCode/object.h"
 #include <GL/glut.h>
 
 ObjLoader::ObjLoader(const char *object_info_file, const Texture *t):

@@ -23,4 +23,5 @@ void keyboard(int key, int x, int y) {
 	}
 
 	redisplay();
+	std::cout << coef << std::endl;
 }

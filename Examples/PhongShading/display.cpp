@@ -22,12 +22,14 @@ void display() {
 	GLint locationColor = glGetUniformLocation(MyShader, "colorTexture");
 	GLint locationHeight = glGetUniformLocation(MyShader, "heightTexture");
 	GLint locationCoef = glGetUniformLocation(MyShader, "coef");
-	if (locationColor == -1 || locationHeight == -1 || locationCoef == -1)
-		cerr << "Cant find texture name: coef, colorTexture or heightTexture." << endl;
+	GLint locationWidth = glGetUniformLocation(MyShader, "textureWidth");
+	if (locationColor == -1 || locationHeight == -1 || locationCoef == -1 || locationWidth == -1)
+		cerr << "Cant find name: textureWidth, coef, colorTexture or heightTexture." << endl;
 	else {
 		glUniform1i(locationColor, 0);
 		glUniform1i(locationHeight, 1);
 		glUniform1f(locationCoef, coef);
+		glUniform1f(locationWidth, 1024.0);
 	}
 
 	lightPtr->setLight();

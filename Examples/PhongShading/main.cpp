@@ -9,7 +9,7 @@ SceneLoader *scenePtr;
 LightLoader *lightPtr;
 GLhandleARB MyShader;
 
-float coef = 2;
+float coef = 1;
 
 void LoadShaders();
 
@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 	if (glewInit() != GLEW_OK)
 		return -1;
 
-	scenePtr = new SceneLoader(argv[2], (const char **) argv + 3);
+	scenePtr = new SceneLoader(argv[2], (const char **) argv + 4);
 	LoadShaders();
 
 	glutDisplayFunc(display);

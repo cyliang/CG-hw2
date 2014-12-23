@@ -75,7 +75,6 @@
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="light.cpp" />
     <ClCompile Include="mesh.cpp" />
-    <ClCompile Include="object.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="texture.cpp" />
